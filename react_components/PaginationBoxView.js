@@ -34,13 +34,13 @@ export default class PaginationBoxView extends Component {
     pageNum              : 10,
     pageRangeDisplayed   : 2,
     marginPagesDisplayed : 3,
-    activeClassName      : "selected",
-    previousClassName    : "previous",
-    nextClassName        : "next",
-    previousLabel        : "Previous",
-    nextLabel            : "Next",
-    breakLabel           : "...",
-    disabledClassName    : "disabled"
+    activeClassName      : 'selected',
+    previousClassName    : 'previous',
+    nextClassName        : 'next',
+    previousLabel        : 'Previous',
+    nextLabel            : 'Next',
+    breakLabel           : '...',
+    disabledClassName    : 'disabled'
   };
 
   constructor(props) {
@@ -92,8 +92,8 @@ export default class PaginationBoxView extends Component {
   };
 
   callCallback = (selectedItem) => {
-    if (typeof(this.props.clickCallback) !== "undefined" &&
-        typeof(this.props.clickCallback) === "function") {
+    if (typeof(this.props.clickCallback) !== 'undefined' &&
+        typeof(this.props.clickCallback) === 'function') {
       this.props.clickCallback({selected: selectedItem});
     }
   };
@@ -187,17 +187,19 @@ export default class PaginationBoxView extends Component {
                                    {[disabled]: this.state.selected === this.props.pageNum - 1});
 
     return (
-      <ul className={this.props.containerClassName}>
-        <li onClick={this.handlePreviousPage} className={previousClasses}>
-          <a className={this.props.previousLinkClassName}>{this.props.previousLabel}</a>
-        </li>
+      <div className={this.props.containerClassName}>
+        <div onClick={this.handlePreviousPage} className={previousClasses}>
+          <span className='arrow'>&#60;</span>
+          <span>PREV</span>
+        </div>
 
         {createFragment(this.pagination())}
 
-        <li onClick={this.handleNextPage} className={nextClasses}>
-          <a className={this.props.nextLinkClassName}>{this.props.nextLabel}</a>
-        </li>
-      </ul>
+        <div onClick={this.handleNextPage} className={nextClasses}>
+          <span>NEXT</span>
+          <span className='arrow'>&#62;</span>
+        </div>
+      </div>
     );
   }
 };

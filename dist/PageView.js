@@ -44,13 +44,9 @@ var PageView = function (_React$Component) {
       }
 
       return _react2.default.createElement(
-        'li',
-        { className: cssClassName },
-        _react2.default.createElement(
-          'a',
-          _extends({}, this.props, { className: linkClassName }),
-          this.props.page
-        )
+        'button',
+        _extends({}, this.props, { className: cssClassName }),
+        this.props.page
       );
     }
   }]);

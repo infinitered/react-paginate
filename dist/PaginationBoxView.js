@@ -70,7 +70,7 @@ var PaginationBoxView = function (_Component) {
     };
 
     _this.callCallback = function (selectedItem) {
-      if (typeof _this.props.clickCallback !== "undefined" && typeof _this.props.clickCallback === "function") {
+      if (typeof _this.props.clickCallback !== 'undefined' && typeof _this.props.clickCallback === 'function') {
         _this.props.clickCallback({ selected: selectedItem });
       }
     };
@@ -179,25 +179,35 @@ var PaginationBoxView = function (_Component) {
       var nextClasses = (0, _classnames2.default)(this.props.nextClassName, _defineProperty({}, disabled, this.state.selected === this.props.pageNum - 1));
 
       return _react2.default.createElement(
-        'ul',
+        'div',
         { className: this.props.containerClassName },
         _react2.default.createElement(
-          'li',
+          'div',
           { onClick: this.handlePreviousPage, className: previousClasses },
           _react2.default.createElement(
-            'a',
-            { className: this.props.previousLinkClassName },
-            this.props.previousLabel
+            'span',
+            { className: 'arrow' },
+            '<'
+          ),
+          _react2.default.createElement(
+            'span',
+            null,
+            'PREV'
           )
         ),
         (0, _reactAddonsCreateFragment2.default)(this.pagination()),
         _react2.default.createElement(
-          'li',
+          'div',
           { onClick: this.handleNextPage, className: nextClasses },
           _react2.default.createElement(
-            'a',
-            { className: this.props.nextLinkClassName },
-            this.props.nextLabel
+            'span',
+            null,
+            'NEXT'
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'arrow' },
+            '>'
           )
         )
       );
@@ -231,13 +241,13 @@ PaginationBoxView.defaultProps = {
   pageNum: 10,
   pageRangeDisplayed: 2,
   marginPagesDisplayed: 3,
-  activeClassName: "selected",
-  previousClassName: "previous",
-  nextClassName: "next",
-  previousLabel: "Previous",
-  nextLabel: "Next",
-  breakLabel: "...",
-  disabledClassName: "disabled"
+  activeClassName: 'selected',
+  previousClassName: 'previous',
+  nextClassName: 'next',
+  previousLabel: 'Previous',
+  nextLabel: 'Next',
+  breakLabel: '...',
+  disabledClassName: 'disabled'
 };
 exports.default = PaginationBoxView;
 ;
